@@ -1,4 +1,4 @@
-#!/usr/bin/env perl
+g#!/usr/bin/env perl
 # shica
 use strict;
 use warnings;
