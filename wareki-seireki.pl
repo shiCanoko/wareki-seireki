@@ -1,4 +1,4 @@
-g#!/usr/bin/env perl
+#!/usr/bin/env perl
 # shica
 use strict;
 use warnings;
@@ -42,5 +42,5 @@ sub convert{
     my ($kanji) = @_;
     my @number = split(/$kanji/, $wareki);
     my $seireki = 1865 + $number[1] - 1;
-    return $seireki;
+    print("$seireki\n");
 }
