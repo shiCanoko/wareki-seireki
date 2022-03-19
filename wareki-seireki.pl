@@ -11,12 +11,14 @@ use warnings;
 # 2018
 
 my $wareki = $ARGV[0];
+my $seireki;
 
 if ($wareki =~ /慶応元年/ || $wareki =~ /慶応1年/){
     print ("1865\n");
 }
 elsif ($wareki =~ /慶応/ ){
-    my $anser = convert($wareki);
+    $seireki = convert($wareki, "1865");
+    print ("$seireki\n");
 }
 if ($wareki =~ /明治元年/ || $wareki =~ /明治1年/){
     print ("1868\n");
@@ -39,8 +41,17 @@ if ($wareki =~ /令和元年/ || $wareki =~ /令和1年/){
 }
 
 sub convert{
-    my ($kanji) = @_;
-    my @number = split(/$kanji/, $wareki);
-    my $seireki = 1865 + $number[1] - 1;
-    print("$seireki\n");
+    my ($wareki, $first_year) = @_;
+    my $wareki_number = getWarekiNumber($wareki);
+    my $seireki = $wareki_number + $first_year - 1;
+    return $seireki;
+}
+
+sub getWarekiNumber{
+    my ($wareki) = @_;
+    my $wareki_number;
+    if ($wareki =~ /(\d{1,})/) {
+        $wareki_number = $1
+    }
+    return $wareki_number;
 }
