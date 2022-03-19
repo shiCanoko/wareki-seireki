@@ -11,32 +11,56 @@ use warnings;
 # 2018
 
 my $wareki = $ARGV[0];
+
 my $seireki;
+my $first_year_keiou = 1865;
+my $first_year_meiji = 1868;
+my $first_year_taisho = 1912;
+my $first_year_showa = 1926;
+my $first_year_heisei = 1989;
+my $first_year_reiwa = 2019;
+
 
 if ($wareki =~ /慶応元年/ || $wareki =~ /慶応1年/){
-    print ("1865\n");
+    print ("$first_year_keiou\n");
 }
 elsif ($wareki =~ /慶応/ ){
-    $seireki = convert($wareki, "1865");
+    $seireki = convert($wareki, "$first_year_keiou");
     print ("$seireki\n");
 }
 if ($wareki =~ /明治元年/ || $wareki =~ /明治1年/){
-    print ("1868\n");
+    print ("$first_year_meiji\n");
+}
+elsif ($wareki =~ /明治/ ){
+    $seireki = convert($wareki, "$first_year_meiji");
+    print ("$seireki\n");
 }
 if ($wareki =~ /大正元年/ || $wareki =~ /大正1年/){
-    print ("1912\n");
+    print ("$first_year_taisho\n");
+}
+elsif ($wareki =~ /大正/ ){
+    $seireki = convert($wareki, "$first_year_taisho");
+    print ("$seireki\n");
 }
 if ($wareki =~ /昭和元年/ || $wareki =~ /昭和1年/){
-    print ("1926\n");
+    print ("$first_year_showa\n");
+}
+elsif ($wareki =~ /昭和/ ){
+    $seireki = convert($wareki, "$first_year_showa");
+    print ("$seireki\n");
 }
 if ($wareki =~ /平成元年/ || $wareki =~ /平成1年/){
-    print ("1989\n");
+    print ("$first_year_heisei\n");
+}
+elsif ($wareki =~ /平成/ ){
+    $seireki = convert($wareki, "$first_year_heisei");
+    print ("$seireki\n");
 }
 if ($wareki =~ /令和元年/ || $wareki =~ /令和1年/){
-    print ("2019\n");
-} elsif ($wareki =~ /令和/ ){
-    my @number = split(/令和/, $wareki);
-    my $seireki = 2019 + $number[1] - 1;
+    print ("$first_year_reiwa\n");
+}
+elsif ($wareki =~ /令和/ ){
+    $seireki = convert($wareki, "$first_year_reiwa");
     print ("$seireki\n");
 }
 
